@@ -10,9 +10,11 @@ class Tire {
     private LocalDate expiringDate;
     private int inventoryLevel; // inventory level azaldıkça haber verecek
     private ArrayList<List<String>> warehouse;
+    private LocalDate manufactureDate;
+    private double TreadDepth;
 
 
-    public Tire(String sizeId, String name, String seasonType, int salesRate, LocalDate expiringDate, int inventoryLevel, ArrayList<List<String>> warehouse) {
+    public Tire(String sizeId, String name, String seasonType, int salesRate, LocalDate expiringDate, int inventoryLevel, ArrayList<List<String>> warehouse, LocalDate manufactureDate, double TreadDepth) {
         this.sizeId = sizeId;
         this.name = name;
         this.seasonType = seasonType;
@@ -20,6 +22,8 @@ class Tire {
         this.expiringDate = expiringDate;
         this.inventoryLevel = inventoryLevel;
         this.warehouse = warehouse;
+        this.manufactureDate = manufactureDate;
+        this.TreadDepth = TreadDepth;
     }
 
 
@@ -44,5 +48,20 @@ class Tire {
     public ArrayList<List<String>> getWarehouse() { return warehouse; }
     public void setWarehouse(ArrayList<List<String>> warehouse) { this.warehouse = warehouse; }
 
+    public LocalDate getManufactureDate() {
+        return manufactureDate;
+    }
+
+    public void setManufactureDate(LocalDate manufactureDate) {
+        this.manufactureDate = manufactureDate;
+    }
+
+    public double getTreadDepth() {
+        return TreadDepth;
+    }
+
+    public void setTreadDepth(double treadDepth) {
+        TreadDepth = treadDepth;
+    }
 
 }
