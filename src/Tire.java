@@ -12,9 +12,11 @@ class Tire {
     private ArrayList<List<String>> warehouse;
     private LocalDate manufactureDate;
     private double TreadDepth;
+    private boolean isFromFactory;
+    private int numberOfTires;
 
 
-    public Tire(String sizeId, String name, String seasonType, int salesRate, LocalDate expiringDate, int inventoryLevel, ArrayList<List<String>> warehouse, LocalDate manufactureDate, double TreadDepth) {
+    public Tire(String sizeId, String name, String seasonType, int salesRate, LocalDate expiringDate, int inventoryLevel, ArrayList<List<String>> warehouse, LocalDate manufactureDate, double TreadDepth, boolean isFromFactory, int numberOfTires) {
         this.sizeId = sizeId;
         this.name = name;
         this.seasonType = seasonType;
@@ -24,6 +26,8 @@ class Tire {
         this.warehouse = warehouse;
         this.manufactureDate = manufactureDate;
         this.TreadDepth = TreadDepth;
+        this.isFromFactory = isFromFactory;
+        this.numberOfTires = numberOfTires;
     }
 
 
@@ -64,4 +68,26 @@ class Tire {
         TreadDepth = treadDepth;
     }
 
+    public boolean isFromFactory() {
+        return isFromFactory;
+    }
+
+    public void setFromFactory(boolean fromFactory) {
+        isFromFactory = fromFactory;
+    }
+
+    public int getNumberOfTires() {
+        return numberOfTires;
+    }
+
+    public void setNumberOfTires(int numberOfTires) {
+        this.numberOfTires = numberOfTires;
+        checkOrderRequirement();
+    }
+
+    public void checkOrderRequirement(){
+        if (this.numberOfTires < 12){
+            System.out.println("Order required for " + this.sizeId + " " + this.name + " tires.");
+        }
+    }
 }

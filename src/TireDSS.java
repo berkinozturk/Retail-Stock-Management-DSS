@@ -21,6 +21,19 @@ public class TireDSS {
             score += (30 - daysToExpiry) * 2;  // Higher score for items closer to expiry
         }
 
+        // Number of tires stock level contributes to the score
+        int numberOfTires = tire.getNumberOfTires();
+        if (numberOfTires < 10) {
+            score += 50; // Highest urgency
+        } else if (numberOfTires < 20) {
+            score += 40;
+        } else if (numberOfTires < 30) {
+            score += 30;
+        } else if (numberOfTires < 40) {
+            score += 20;
+        } else if (numberOfTires < 50) {
+            score += 10; // Lowest urgency
+        }
         return score;
     }
 }

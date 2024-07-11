@@ -4,38 +4,84 @@ import java.time.temporal.ChronoUnit;
 
 public class Storage {
 
-    private Warehouse newWarehouse;
-    private Warehouse oldWarehouse;
+    private Warehouse carNewWarehouse;
+    private Warehouse carOldWarehouse;
+    private Warehouse excavationNewWarehouse;
+    private Warehouse excavationOldWarehouse;
+    private Warehouse agriculturalNewWarehouse;
+    private Warehouse agriculturalOldWarehouse;
 
-    public Storage(Warehouse newWarehouse, Warehouse oldWarehouse) {
-        this.newWarehouse = newWarehouse;
-        this.oldWarehouse = oldWarehouse;
+    public Storage(Warehouse carNewWarehouse, Warehouse carOldWarehouse, Warehouse excavationNewWarehouse, Warehouse excavationOldWarehouse, Warehouse agriculturalNewWarehouse, Warehouse agriculturalOldWarehouse) {
+        this.carNewWarehouse = carNewWarehouse;
+        this.carOldWarehouse = carOldWarehouse;
+        this.excavationNewWarehouse = excavationNewWarehouse;
+        this.excavationOldWarehouse = excavationOldWarehouse;
+        this.agriculturalNewWarehouse = agriculturalNewWarehouse;
+        this.agriculturalOldWarehouse = agriculturalOldWarehouse;
     }
 
-    public void storeTire(Tire tire, boolean isFromFactory) {
-        if (isFromFactory) {
-            newWarehouse.addTire(tire);
-        } else {
-            long daysSinceManufacture = ChronoUnit.DAYS.between(tire.getManufactureDate(), LocalDate.now());
-            if (tire.getTreadDepth() < 7 || daysSinceManufacture > 30) {
-                oldWarehouse.addTire(tire);
+
+    public void storeTire(Tire tire) {
+        long daysSinceManufacture = ChronoUnit.DAYS.between(tire.getManufactureDate(), LocalDate.now());
+        boolean isNew = tire.isFromFactory() || (tire.getTreadDepth() >= 7 && daysSinceManufacture <= 30);
+
+        if (tire.getSeasonType().equals("car")) {
+            if (isNew) {
+                carNewWarehouse.addTire(tire);
             } else {
-                newWarehouse.addTire(tire);
+                carOldWarehouse.addTire(tire);
+            }
+        } else if (tire.getSeasonType().equals("excavation")) {
+            if (isNew) {
+                excavationNewWarehouse.addTire(tire);
+            } else {
+                excavationOldWarehouse.addTire(tire);
+            }
+        } else if (tire.getSeasonType().equals("agriculture")) {
+            if (isNew) {
+                agriculturalNewWarehouse.addTire(tire);
+            } else {
+                agriculturalOldWarehouse.addTire(tire);
             }
         }
     }
 
     public void displayWarehouses() {
-        System.out.println("New Warehouse:");
-        newWarehouse.getAllTires().forEach((brand, tires) -> {
+
+        System.out.println("NEW CAR WAREHOUSE:");
+        carNewWarehouse.getAllTires().forEach((brand, tires) -> {
             System.out.println("Brand: " + brand);
-            tires.forEach(tire -> System.out.println(" - " + tire.getSizeId()));
+            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
         });
 
-        System.out.println("\nOld Warehouse:");
-        oldWarehouse.getAllTires().forEach((brand, tires) -> {
+        System.out.println("\nOLD CAR WAREHOUSE:");
+        carOldWarehouse.getAllTires().forEach((brand, tires) -> {
             System.out.println("Brand: " + brand);
-            tires.forEach(tire -> System.out.println(" - " + tire.getSizeId()));
+            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
+        });
+
+        System.out.println("\nNEW EXCAVATION WAREHOUSE:");
+        excavationNewWarehouse.getAllTires().forEach((brand, tires) -> {
+            System.out.println("Brand: " + brand);
+            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
+        });
+
+        System.out.println("\nOLD EXCAVATION WAREHOUSE:");
+        excavationOldWarehouse.getAllTires().forEach((brand, tires) -> {
+            System.out.println("Brand: " + brand);
+            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
+        });
+
+        System.out.println("\nNEW AGRICULTURE WAREHOUSE:");
+        agriculturalNewWarehouse.getAllTires().forEach((brand, tires) -> {
+            System.out.println("Brand: " + brand);
+            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
+        });
+
+        System.out.println("\nOLD AGRICULTURE WAREHOUSE:");
+        agriculturalOldWarehouse.getAllTires().forEach((brand, tires) -> {
+            System.out.println("Brand: " + brand);
+            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
         });
     }
 }
