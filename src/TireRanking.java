@@ -7,7 +7,6 @@ public class TireRanking {
 
     private List<Tire> tires;
 
-    // Constructor
     public TireRanking(List<Tire> tires) {
         this.tires = tires;
     }
@@ -21,11 +20,13 @@ public class TireRanking {
         // Display the ranking
         for (Tire tire : tires) {
             int score = tireDSS.calculateScore(tire);
+            if (score > 0){
             System.out.println("Tire: " + tire.getName() + " | Score: " +score);
             if (score > 400){
                 System.out.println("----------------");
                 printTireDetails(tire);
                 System.out.println("----------------");
+            }
             }
         }
 
@@ -35,10 +36,9 @@ public class TireRanking {
         System.out.println("Tire Details:");
         System.out.println("Size ID: " + tire.getSizeId());
         System.out.println("Name: " + tire.getName());
-        System.out.println("Season Type: " + tire.getSeasonType());
+        System.out.println("Category: " + tire.getCategory());
         System.out.println("Sales Rate: " + tire.getSalesRate());
         System.out.println("Expiring Date: " + tire.getExpiringDate());
-        System.out.println("Inventory Level: " + tire.getInventoryLevel());
         System.out.println("Manufacture Date: " + tire.getManufactureDate());
         System.out.println("Tread Depth: " + tire.getTreadDepth());
         System.out.println("Is From Factory: " + tire.isFromFactory());

@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class Warehouse {
 
-    private String name;
-    private Map<String, List<Tire>> tires;
+    private final String name;
+    private final Map<String, List<Tire>> tires;
 
     public Warehouse(String name) {
         this.name = name;

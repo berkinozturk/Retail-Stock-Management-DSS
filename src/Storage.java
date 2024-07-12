@@ -20,24 +20,23 @@ public class Storage {
         this.agriculturalOldWarehouse = agriculturalOldWarehouse;
     }
 
-
     public void storeTire(Tire tire) {
         long daysSinceManufacture = ChronoUnit.DAYS.between(tire.getManufactureDate(), LocalDate.now());
         boolean isNew = tire.isFromFactory() || (tire.getTreadDepth() >= 7 && daysSinceManufacture <= 30);
 
-        if (tire.getSeasonType().equals("car")) {
+        if (tire.getCategory().equals("car")) {
             if (isNew) {
                 carNewWarehouse.addTire(tire);
             } else {
                 carOldWarehouse.addTire(tire);
             }
-        } else if (tire.getSeasonType().equals("excavation")) {
+        } else if (tire.getCategory().equals("excavation")) {
             if (isNew) {
                 excavationNewWarehouse.addTire(tire);
             } else {
                 excavationOldWarehouse.addTire(tire);
             }
-        } else if (tire.getSeasonType().equals("agriculture")) {
+        } else if (tire.getCategory().equals("agriculture")) {
             if (isNew) {
                 agriculturalNewWarehouse.addTire(tire);
             } else {
