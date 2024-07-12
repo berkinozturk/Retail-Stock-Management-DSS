@@ -13,16 +13,8 @@ public class Warehouse {
         this.tires = new HashMap<>();
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void addTire(Tire tire) {
         tires.computeIfAbsent(tire.getBrand(), k -> new ArrayList<>()).add(tire);
-    }
-
-    public List<Tire> getTires(String brand) {
-        return tires.getOrDefault(brand, new ArrayList<>());
     }
 
     public Map<String, List<Tire>> getAllTires() {

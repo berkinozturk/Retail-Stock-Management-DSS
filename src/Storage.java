@@ -45,42 +45,27 @@ public class Storage {
         }
     }
 
-    public void displayWarehouses() {
+    public Warehouse getCarNewWarehouse() {
+        return carNewWarehouse;
+    }
 
-        System.out.println("NEW CAR WAREHOUSE:");
-        carNewWarehouse.getAllTires().forEach((brand, tires) -> {
-            System.out.println("Brand: " + brand);
-            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
-        });
+    public Warehouse getCarOldWarehouse() {
+        return carOldWarehouse;
+    }
 
-        System.out.println("\nOLD CAR WAREHOUSE:");
-        carOldWarehouse.getAllTires().forEach((brand, tires) -> {
-            System.out.println("Brand: " + brand);
-            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
-        });
+    public Warehouse getExcavationNewWarehouse() {
+        return excavationNewWarehouse;
+    }
 
-        System.out.println("\nNEW EXCAVATION WAREHOUSE:");
-        excavationNewWarehouse.getAllTires().forEach((brand, tires) -> {
-            System.out.println("Brand: " + brand);
-            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
-        });
+    public Warehouse getExcavationOldWarehouse() {
+        return excavationOldWarehouse;
+    }
 
-        System.out.println("\nOLD EXCAVATION WAREHOUSE:");
-        excavationOldWarehouse.getAllTires().forEach((brand, tires) -> {
-            System.out.println("Brand: " + brand);
-            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
-        });
+    public Warehouse getAgriculturalNewWarehouse() {
+        return agriculturalNewWarehouse;
+    }
 
-        System.out.println("\nNEW AGRICULTURE WAREHOUSE:");
-        agriculturalNewWarehouse.getAllTires().forEach((brand, tires) -> {
-            System.out.println("Brand: " + brand);
-            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
-        });
-
-        System.out.println("\nOLD AGRICULTURE WAREHOUSE:");
-        agriculturalOldWarehouse.getAllTires().forEach((brand, tires) -> {
-            System.out.println("Brand: " + brand);
-            tires.forEach(tire -> System.out.println(" - The size Id: " + tire.getSizeId() + " & Manufacturing Date: " + tire.getManufactureDate() + " & Number of Tires: " + tire.getNumberOfTires()));
-        });
+    public Warehouse getAgriculturalOldWarehouse() {
+        return agriculturalOldWarehouse;
     }
 }

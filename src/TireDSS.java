@@ -20,7 +20,7 @@ public class TireDSS {
         int lowTireCountAndExpiryContribution = 0;
         int expirySoonContribution = 0;
 
-        // Katsayılar ile puanlama
+        // Scoring system
         if (highSalesRate && lowTireCount) {
             salesRateAndLowTireCountContribution = 5 * salesRate;
             totalScore += salesRateAndLowTireCountContribution;
@@ -55,28 +55,28 @@ public class TireDSS {
 }
 
 class DetailedScore {
-    private int totalScore;
-    private int salesRateContribution;
-    private int salesRateAndLowTireCountContribution;
-    private int salesRateLowTireCountExpiryContribution;
-    private int veryLowTireCountContribution;
-    private int veryLowTireCountAndExpiryContribution;
-    private int expirySoonContribution;
+    private final int totalScore;
+    private final int salesRateContribution;
+    private final int salesRateAndLowTireCountContribution;
+    private final int salesRateLowTireCountExpiryContribution;
+    private final int lowTireCountContribution;
+    private final int lowTireCountAndExpiryContribution;
+    private final int expirySoonContribution;
 
     public DetailedScore(
             int totalScore,
             int salesRateContribution,
             int salesRateAndLowTireCountContribution,
             int salesRateLowTireCountExpiryContribution,
-            int veryLowTireCountContribution,
-            int veryLowTireCountAndExpiryContribution,
+            int lowTireCountContribution,
+            int lowTireCountAndExpiryContribution,
             int expirySoonContribution) {
         this.totalScore = totalScore;
         this.salesRateContribution = salesRateContribution;
         this.salesRateAndLowTireCountContribution = salesRateAndLowTireCountContribution;
         this.salesRateLowTireCountExpiryContribution = salesRateLowTireCountExpiryContribution;
-        this.veryLowTireCountContribution = veryLowTireCountContribution;
-        this.veryLowTireCountAndExpiryContribution = veryLowTireCountAndExpiryContribution;
+        this.lowTireCountContribution = lowTireCountContribution;
+        this.lowTireCountAndExpiryContribution = lowTireCountAndExpiryContribution;
         this.expirySoonContribution = expirySoonContribution;
     }
 
@@ -96,12 +96,12 @@ class DetailedScore {
         return salesRateLowTireCountExpiryContribution;
     }
 
-    public int getVeryLowTireCountContribution() {
-        return veryLowTireCountContribution;
+    public int getLowTireCountContribution() {
+        return lowTireCountContribution;
     }
 
-    public int getVeryLowTireCountAndExpiryContribution() {
-        return veryLowTireCountAndExpiryContribution;
+    public int getLowTireCountAndExpiryContribution() {
+        return lowTireCountAndExpiryContribution;
     }
 
     public int getExpirySoonContribution() {
