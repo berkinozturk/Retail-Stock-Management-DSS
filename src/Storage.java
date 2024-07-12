@@ -4,12 +4,12 @@ import java.time.temporal.ChronoUnit;
 
 public class Storage {
 
-    private Warehouse carNewWarehouse;
-    private Warehouse carOldWarehouse;
-    private Warehouse excavationNewWarehouse;
-    private Warehouse excavationOldWarehouse;
-    private Warehouse agriculturalNewWarehouse;
-    private Warehouse agriculturalOldWarehouse;
+    private final Warehouse carNewWarehouse;
+    private final Warehouse carOldWarehouse;
+    private final Warehouse excavationNewWarehouse;
+    private final Warehouse excavationOldWarehouse;
+    private final Warehouse agriculturalNewWarehouse;
+    private final Warehouse agriculturalOldWarehouse;
 
     public Storage(Warehouse carNewWarehouse, Warehouse carOldWarehouse, Warehouse excavationNewWarehouse, Warehouse excavationOldWarehouse, Warehouse agriculturalNewWarehouse, Warehouse agriculturalOldWarehouse) {
         this.carNewWarehouse = carNewWarehouse;

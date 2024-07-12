@@ -18,7 +18,7 @@ public class Warehouse {
     }
 
     public void addTire(Tire tire) {
-        tires.computeIfAbsent(tire.getName(), k -> new ArrayList<>()).add(tire);
+        tires.computeIfAbsent(tire.getBrand(), k -> new ArrayList<>()).add(tire);
     }
 
     public List<Tire> getTires(String brand) {
