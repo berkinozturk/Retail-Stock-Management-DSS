@@ -80,104 +80,50 @@ public class Main {
 
     private static void addTire() {
         JFrame addFrame = new JFrame("Add Tire");
-        addFrame.setSize(400, 300);
-        JPanel panel = new JPanel();
-        addFrame.add(panel);
-        placeAddComponents(panel, addFrame);
-        addFrame.setVisible(true);
-    }
+        addFrame.setSize(600, 600);
 
-    private static void placeAddComponents(JPanel panel, JFrame addFrame) {
-        panel.setLayout(null);
+        JPanel panel = new JPanel();
+        GroupLayout layout = new GroupLayout(panel);
+        panel.setLayout(layout);
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
 
         JLabel sizeIdLabel = new JLabel("Size ID:");
-        sizeIdLabel.setBounds(10, 20, 80, 25);
-        panel.add(sizeIdLabel);
-
         JTextField sizeIdText = new JTextField(20);
-        sizeIdText.setBounds(150, 20, 165, 25);
-        panel.add(sizeIdText);
 
         JLabel nameLabel = new JLabel("Brand:");
-        nameLabel.setBounds(10, 50, 80, 25);
-        panel.add(nameLabel);
-
         JTextField nameText = new JTextField(20);
-        nameText.setBounds(150, 50, 165, 25);
-        panel.add(nameText);
 
-        JLabel category = new JLabel("Category:");
-        category.setBounds(10, 80, 80, 25);
-        panel.add(category);
-
-        JTextField categoryTypeText = new JTextField(20);
-        categoryTypeText.setBounds(150, 80, 165, 25);
-        panel.add(categoryTypeText);
+        JLabel seasonTypeLabel = new JLabel("Category (car/excavation/agriculture):");
+        JTextField seasonTypeText = new JTextField(20);
 
         JLabel salesRateLabel = new JLabel("Sales Rate:");
-        salesRateLabel.setBounds(10, 110, 80, 25);
-        panel.add(salesRateLabel);
-
         JTextField salesRateText = new JTextField(20);
-        salesRateText.setBounds(150, 110, 165, 25);
-        panel.add(salesRateText);
 
         JLabel expiringDateLabel = new JLabel("Expiring Date (YYYY-MM-DD):");
-        expiringDateLabel.setBounds(10, 140, 200, 25);
-        panel.add(expiringDateLabel);
-
         JTextField expiringDateText = new JTextField(20);
-        expiringDateText.setBounds(150, 140, 165, 25);
-        panel.add(expiringDateText);
-
 
         JLabel manufactureDateLabel = new JLabel("Manufacture Date (YYYY-MM-DD):");
-        manufactureDateLabel.setBounds(10, 200, 200, 25);
-        panel.add(manufactureDateLabel);
-
         JTextField manufactureDateText = new JTextField(20);
-        manufactureDateText.setBounds(150, 200, 165, 25);
-        panel.add(manufactureDateText);
 
         JLabel treadDepthLabel = new JLabel("Tread Depth:");
-        treadDepthLabel.setBounds(10, 230, 80, 25);
-        panel.add(treadDepthLabel);
-
         JTextField treadDepthText = new JTextField(20);
-        treadDepthText.setBounds(150, 230, 165, 25);
-        panel.add(treadDepthText);
 
         JLabel isFromFactoryLabel = new JLabel("Is From Factory:");
-        isFromFactoryLabel.setBounds(10, 260, 100, 25);
-        panel.add(isFromFactoryLabel);
-
         JCheckBox isFromFactoryCheck = new JCheckBox();
-        isFromFactoryCheck.setBounds(150, 260, 165, 25);
-        panel.add(isFromFactoryCheck);
 
         JLabel numberOfTiresLabel = new JLabel("Number of Tires:");
-        numberOfTiresLabel.setBounds(10, 290, 100, 25);
-        panel.add(numberOfTiresLabel);
-
         JTextField numberOfTiresText = new JTextField(20);
-        numberOfTiresText.setBounds(150, 290, 165, 25);
-        panel.add(numberOfTiresText);
 
         JLabel originalPriceLabel = new JLabel("Original Price:");
-        originalPriceLabel.setBounds(10, 320, 100, 25);
-        panel.add(originalPriceLabel);
-
         JTextField originalPriceText = new JTextField(20);
-        originalPriceText.setBounds(150, 320, 165, 25);
-        panel.add(originalPriceText);
 
         JButton addButton = new JButton("Add Tire");
-        addButton.setBounds(150, 350, 100, 25);
         addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String sizeId = sizeIdText.getText();
                 String name = nameText.getText();
-                String category = categoryTypeText.getText();
+                String seasonType = seasonTypeText.getText();
                 int salesRate = Integer.parseInt(salesRateText.getText());
                 LocalDate expiringDate = readDate(expiringDateText.getText());
                 ArrayList<List<String>> warehouse = new ArrayList<>();
@@ -187,15 +133,82 @@ public class Main {
                 int numberOfTires = Integer.parseInt(numberOfTiresText.getText());
                 double originalPrice = Double.parseDouble(originalPriceText.getText());
 
-                Tire tire = new Tire(sizeId, name, category, salesRate, expiringDate, warehouse, manufactureDate, treadDepth, isFromFactory, numberOfTires, originalPrice);
+                Tire tire = new Tire(sizeId, name, seasonType, salesRate, expiringDate, warehouse, manufactureDate, treadDepth, isFromFactory, numberOfTires, originalPrice);
                 tires.add(tire);
                 storage.storeTire(tire);
                 JOptionPane.showMessageDialog(addFrame, "The tire has been successfully added and stored.");
                 addFrame.dispose();
             }
         });
-        panel.add(addButton);
+
+        layout.setHorizontalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addComponent(sizeIdLabel)
+                                .addComponent(nameLabel)
+                                .addComponent(seasonTypeLabel)
+                                .addComponent(salesRateLabel)
+                                .addComponent(expiringDateLabel)
+                                .addComponent(manufactureDateLabel)
+                                .addComponent(treadDepthLabel)
+                                .addComponent(isFromFactoryLabel)
+                                .addComponent(numberOfTiresLabel)
+                                .addComponent(originalPriceLabel))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                .addComponent(sizeIdText)
+                                .addComponent(nameText)
+                                .addComponent(seasonTypeText)
+                                .addComponent(salesRateText)
+                                .addComponent(expiringDateText)
+                                .addComponent(manufactureDateText)
+                                .addComponent(treadDepthText)
+                                .addComponent(isFromFactoryCheck)
+                                .addComponent(numberOfTiresText)
+                                .addComponent(originalPriceText)
+                                .addComponent(addButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        layout.setVerticalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(sizeIdLabel)
+                                .addComponent(sizeIdText))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(nameLabel)
+                                .addComponent(nameText))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(seasonTypeLabel)
+                                .addComponent(seasonTypeText))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(salesRateLabel)
+                                .addComponent(salesRateText))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(expiringDateLabel)
+                                .addComponent(expiringDateText))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(manufactureDateLabel)
+                                .addComponent(manufactureDateText))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(treadDepthLabel)
+                                .addComponent(treadDepthText))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(isFromFactoryLabel)
+                                .addComponent(isFromFactoryCheck))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(numberOfTiresLabel)
+                                .addComponent(numberOfTiresText))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(originalPriceLabel)
+                                .addComponent(originalPriceText))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(addButton))
+        );
+
+        addFrame.add(panel);
+        addFrame.setVisible(true);
     }
+
+
 
     private static LocalDate readDate(String dateString) {
         LocalDate date = null;
@@ -219,17 +232,17 @@ public class Main {
                         .append("  Sales Rate Contribution: ").append(score.getSalesRateContribution()).append("\n")
                         .append("  Sales Rate and Low Tire Count Contribution: ").append(score.getSalesRateAndLowTireCountContribution()).append("\n")
                         .append("  Sales Rate, Low Tire Count and Expiry Contribution: ").append(score.getSalesRateLowTireCountExpiryContribution()).append("\n")
-                        .append("  Very Low Tire Count Contribution: ").append(score.getLowTireCountContribution()).append("\n")
-                        .append("  Very Low Tire Count and Expiry Contribution: ").append(score.getLowTireCountAndExpiryContribution()).append("\n")
+                        .append("  Low Tire Count Contribution: ").append(score.getLowTireCountContribution()).append("\n")
+                        .append("  Low Tire Count and Expiry Contribution: ").append(score.getLowTireCountAndExpiryContribution()).append("\n")
                         .append("  Expiry Soon Contribution: ").append(score.getExpirySoonContribution()).append("\n");
 
                 if (score.getTotalScore() > 0) {
                     ranking.append("  Size ID: ").append(tire.getSizeId()).append("\n")
                             .append("  Brand: ").append(tire.getBrand()).append("\n")
-                            .append("  Season Type: ").append(tire.getCategory()).append("\n")
+                            .append("  Category: ").append(tire.getCategory()).append("\n")
                             .append("  Sales Rate: ").append(tire.getSalesRate()).append("\n")
                             .append("  Expiring Date: ").append(tire.getExpiringDate()).append("\n")
-                            .append("  Manufacture Date: ").append(tire.getManufactureDate()).append("\n")
+                            .append("  Manufacturing Date: ").append(tire.getManufactureDate()).append("\n")
                             .append("  Tread Depth: ").append(tire.getTreadDepth()).append("\n")
                             .append("  Is From Factory: ").append(tire.isFromFactory()).append("\n")
                             .append("  Number of Tires: ").append(tire.getNumberOfTires()).append("\n");
@@ -329,15 +342,15 @@ public class Main {
         tires.add(new Tire("195/65fdfdfdfdfdfR15", "Harvester", "car", 90, LocalDate.of(2024, 8, 15),  warehouse, LocalDate.of(2024,10,13), 7.5, false, 20, 200.0));
 
         // Excavation tires
-        tires.add(new Tire("235/75R17.5", "Michelin", "excavation", 80, LocalDate.of(2024, 8, 20),  warehouse, LocalDate.of(2024, 6, 15), 8.0, false, 15, 250.0)); // Kamyon
-        tires.add(new Tire("215/75R17.5", "Bridgestone", "excavation", 70, LocalDate.of(2024, 8, 25),  warehouse, LocalDate.of(2024, 5, 10), 7.5, false, 10, 220.0)); // Kepçe
+        tires.add(new Tire("235/75R17.5", "Michelin", "excavation", 80, LocalDate.of(2024, 8, 20),  warehouse, LocalDate.of(2024, 6, 15), 8.0, false, 15, 250.0)); // Truck
+        tires.add(new Tire("215/75R17.5", "Bridgestone", "excavation", 70, LocalDate.of(2024, 8, 25),  warehouse, LocalDate.of(2024, 5, 10), 7.5, false, 10, 220.0)); // Ladle
         tires.add(new Tire("225/75R17.5", "Goodyear", "excavation", 60, LocalDate.of(2024, 7, 30),  warehouse, LocalDate.of(2024, 5, 15), 7.0, false, 12, 200.0)); // Forklift
-        tires.add(new Tire("245/75R17.5", "Pirelli", "excavation", 50, LocalDate.of(2024, 6, 20),  warehouse, LocalDate.of(2024, 4, 20), 6.5, false, 20, 180.0)); // Vinç
+        tires.add(new Tire("245/75R17.5", "Pirelli", "excavation", 50, LocalDate.of(2024, 6, 20),  warehouse, LocalDate.of(2024, 4, 20), 6.5, false, 20, 180.0)); // Crane
 
         // Agriculture tires
-        tires.add(new Tire("480/70R34", "Firestone", "agriculture", 85, LocalDate.of(2025, 10, 1),  warehouse, LocalDate.of(2024, 9, 15), 8.5, false, 25, 300.0)); // Biçerdöver
-        tires.add(new Tire("320/85R28", "Trelleborg", "agriculture", 75, LocalDate.of(2025, 9, 20),  warehouse, LocalDate.of(2024, 8, 20), 8.0, false, 18, 280.0)); // Traktör
-        tires.add(new Tire("400/70R24", "Continental", "agriculture", 65, LocalDate.of(2025, 8, 15),  warehouse, LocalDate.of(2024, 7, 10), 7.5, false, 22, 260.0)); // Römork
+        tires.add(new Tire("480/70R34", "Firestone", "agriculture", 85, LocalDate.of(2025, 10, 1),  warehouse, LocalDate.of(2024, 9, 15), 8.5, false, 25, 300.0)); // Harvester
+        tires.add(new Tire("320/85R28", "Trelleborg", "agriculture", 75, LocalDate.of(2025, 9, 20),  warehouse, LocalDate.of(2024, 8, 20), 8.0, false, 18, 280.0)); // Tractor
+        tires.add(new Tire("400/70R24", "Continental", "agriculture", 65, LocalDate.of(2025, 8, 15),  warehouse, LocalDate.of(2024, 7, 10), 7.5, false, 22, 260.0)); // Trailer
 
         // Adding tires to warehouses
         for (Tire tire : tires) {
