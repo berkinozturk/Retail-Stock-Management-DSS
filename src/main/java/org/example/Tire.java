@@ -62,7 +62,13 @@ class Tire {
         this.numberOfTires = numberOfTires;
     }
 
+    public void setFromFactory(boolean fromFactory) {
+        isFromFactory = fromFactory;
+    }
 
 
+    public void setOriginalPrice(double originalPrice) {
+        this.originalPrice = originalPrice;
+    }
 
 }

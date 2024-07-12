@@ -31,4 +31,37 @@ public class TireTest {
         tire.setNumberOfTires(10);
         assertTrue(tire.getNumberOfTires() < 12);
     }
+
+    @Test
+    public void testTireExpirationSoon() {
+        ArrayList<List<String>> warehouse = new ArrayList<>();
+        Tire tire = new Tire("195/65R15", "Petlas", "car", 50, LocalDate.now().plusDays(20), warehouse, LocalDate.of(2024, 10, 13), 7.5, true, 4, 100.0);
+        assertTrue(tire.getExpiringDate().isBefore(LocalDate.now().plusDays(30)));
+    }
+
+    @Test
+    public void testTireTreadDepth() {
+        ArrayList<List<String>> warehouse = new ArrayList<>();
+        Tire tire = new Tire("195/65R15", "Petlas", "car", 50, LocalDate.of(2024, 11, 13),  warehouse, LocalDate.of(2024, 10, 13), 6.5, true, 4, 100.0);
+        assertTrue(tire.getTreadDepth() < 7);
+    }
+
+    @Test
+    public void testTireFromFactory() {
+        ArrayList<List<String>> warehouse = new ArrayList<>();
+        Tire tire = new Tire("195/65R15", "Petlas", "car", 50, LocalDate.of(2024, 11, 13),  warehouse, LocalDate.of(2024, 10, 13), 7.5, true, 4, 100.0);
+        assertTrue(tire.isFromFactory());
+        tire.setFromFactory(false);
+        assertFalse(tire.isFromFactory());
+    }
+
+    @Test
+    public void testTirePriceUpdate() {
+        ArrayList<List<String>> warehouse = new ArrayList<>();
+        Tire tire = new Tire("195/65R15", "Petlas", "car", 50, LocalDate.of(2024, 11, 13),  warehouse, LocalDate.of(2024, 10, 13), 7.5, true, 4, 100.0);
+        tire.setOriginalPrice(120.0);
+        assertEquals(120.0, tire.getOriginalPrice());
+        tire.setDiscountedPrice(100.0);
+        assertEquals(100.0, tire.getDiscountedPrice());
+    }
 }

@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0575e561-2305-47b6-8992-2637115aab45" name="Changes" comment="" />
+    <list default="true" id="0575e561-2305-47b6-8992-2637115aab45" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Tire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Tire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/TireDSSTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/TireDSSTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/TireTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/TireTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +23,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -30,16 +38,20 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "JUnit.StorageTest.executor": "Run",
+    "JUnit.StorageTest.testStoreTire.executor": "Run",
     "JUnit.TireDSSTest.executor": "Run",
     "JUnit.TireDSSTest.testCalculateScore.executor": "Run",
+    "JUnit.TireDSSTest.testCalculateScoreForDifferentSalesRate.executor": "Run",
+    "JUnit.TireDSSTest.testLowTireCountScore.executor": "Run",
     "JUnit.TireTest.executor": "Run",
     "JUnit.TireTest.testTireCreation.executor": "Run",
     "JUnit.WarehouseTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/berkinozturk/Desktop/newDSSProject",
+    "last_opened_file_path": "/Users/berkinozturk/Desktop/Retail-Stock-Management-DSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,21 +72,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.TireDSSTest">
-    <configuration name="StorageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="newDSSProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.StorageTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TireDSSTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="newDSSProject" />
       <extension name="coverage">
@@ -90,7 +87,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TireTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TireDSSTest.testCalculateScoreForDifferentSalesRate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="newDSSProject" />
       <extension name="coverage">
         <pattern>
@@ -99,29 +96,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.TireTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TireTest.testTireCreation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="newDSSProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.TireTest" />
-      <option name="METHOD_NAME" value="testTireCreation" />
+      <option name="MAIN_CLASS_NAME" value="org.example.TireDSSTest" />
+      <option name="METHOD_NAME" value="testCalculateScoreForDifferentSalesRate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TireDSSTest.testCalculateScoreForFactoryTires" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="newDSSProject" />
       <extension name="coverage">
         <pattern>
@@ -130,8 +112,41 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.WarehouseTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="org.example.TireDSSTest" />
+      <option name="METHOD_NAME" value="testCalculateScoreForFactoryTires" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TireDSSTest.testCalculateScoreForHighInventory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="newDSSProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.TireDSSTest" />
+      <option name="METHOD_NAME" value="testCalculateScoreForHighInventory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TireDSSTest.testCalculateScoreForNearExpiry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="newDSSProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.TireDSSTest" />
+      <option name="METHOD_NAME" value="testCalculateScoreForNearExpiry" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -139,10 +154,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TireDSSTest" />
-        <item itemvalue="JUnit.TireTest" />
-        <item itemvalue="JUnit.TireTest.testTireCreation" />
-        <item itemvalue="JUnit.StorageTest" />
-        <item itemvalue="JUnit.WarehouseTest" />
+        <item itemvalue="JUnit.TireDSSTest.testCalculateScoreForFactoryTires" />
+        <item itemvalue="JUnit.TireDSSTest.testCalculateScoreForHighInventory" />
+        <item itemvalue="JUnit.TireDSSTest.testCalculateScoreForNearExpiry" />
+        <item itemvalue="JUnit.TireDSSTest.testCalculateScoreForDifferentSalesRate" />
       </list>
     </recent_temporary>
   </component>
@@ -164,6 +179,7 @@
       <updated>1720812673741</updated>
       <workItem from="1720812674668" duration="206000" />
       <workItem from="1720812891663" duration="1150000" />
+      <workItem from="1720814504881" duration="2589000" />
     </task>
     <servers />
   </component>
