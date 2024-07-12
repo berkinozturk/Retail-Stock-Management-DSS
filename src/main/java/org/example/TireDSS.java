@@ -1,3 +1,5 @@
+package org.example;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -9,7 +11,7 @@ public class TireDSS {
         int numberOfTires = tire.getNumberOfTires();
         long daysToExpiry = ChronoUnit.DAYS.between(LocalDate.now(), tire.getExpiringDate());
 
-        boolean highSalesRate = salesRate > 60;
+        boolean highSalesRate = salesRate >= 60;
         boolean lowTireCount = numberOfTires < 12;
         boolean expirySoon = daysToExpiry < 30;
 

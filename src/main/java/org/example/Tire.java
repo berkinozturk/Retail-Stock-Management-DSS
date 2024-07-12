@@ -1,19 +1,21 @@
+package org.example;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 class Tire {
-    private final String sizeId;
-    private final String brand;
-    private final String category;
-    private final int salesRate;
-    private final LocalDate expiringDate;
+    private String sizeId;
+    private String brand;
+    private String category;
+    private int salesRate;
+    private LocalDate expiringDate;
     private ArrayList<List<String>> warehouse;
-    private final LocalDate manufactureDate;
-    private final double treadDepth;
-    private final boolean isFromFactory;
-    private final int numberOfTires;
-    private final double originalPrice;
+    private LocalDate manufactureDate;
+    private double treadDepth;
+    private boolean isFromFactory;
+    private int numberOfTires;
+    private double originalPrice;
     private double discountedPrice;
 
     public Tire(String sizeId, String brand, String category, int salesRate, LocalDate expiringDate, ArrayList<List<String>> warehouse, LocalDate manufactureDate, double treadDepth, boolean isFromFactory, int numberOfTires, double originalPrice) {
@@ -55,6 +57,12 @@ class Tire {
     public double getDiscountedPrice() { return discountedPrice; }
 
     public void setDiscountedPrice(double discountedPrice) { this.discountedPrice = discountedPrice; }
+
+    public void setNumberOfTires(int numberOfTires) {
+        this.numberOfTires = numberOfTires;
+    }
+
+
 
 
 }
