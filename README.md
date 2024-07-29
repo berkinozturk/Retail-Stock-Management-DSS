@@ -3,6 +3,11 @@
 ## Overview
 Retail Stock Management DSS is a Java-based application designed to manage tire inventories across multiple warehouses. It offers functionalities such as demand forecasting, inventory optimization, and data analysis to support decision-making in retail stock management. The project is specifically tailored for managing tire inventories across different warehouse locations. The system includes functionality for adding new tires, displaying inventory, sorting and ranking tires, checking order requirements, and applying discounts.
 
+## Project Description in Detail
+The Retail Stock Management DSS is a specialized software solution designed to streamline inventory management processes for tire retail businesses. Built using Java, this system offers comprehensive tools for tracking, analyzing, and optimizing tire stocks across multiple warehouses. The core functionalities include demand forecasting, inventory optimization, and decision support, all aimed at enhancing the efficiency of stock management and reducing associated costs.
+
+Key features of the system include the ability to categorize and manage different types of tires (such as car, excavation, and agriculture tires), apply discounts, and determine order requirements based on current inventory levels. The user-friendly interface provides easy access to vital functions, such as adding new tires, viewing warehouse inventories, and ranking tires by various criteria. This system is essential for retail managers seeking to maintain optimal stock levels, prevent stockouts, and ensure efficient warehouse operations.
+
 ## Features
 - **Demand Forecasting**: Predict future tire demand based on historical data.
 - **Inventory Optimization**: Suggest optimal inventory levels to minimize costs and prevent stockouts.
